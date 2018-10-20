@@ -15046,13 +15046,16 @@ button.bg-lighter:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+   background-image: linear-gradient(to right bottom, #6f0014, #8e2027, #ad393c, #cd5152, #ee6969) !important;
 }
+
+
 
 .bg-gradient-secondary
 {
-    background: linear-gradient(87deg, #f7fafc 0, #f7f8fc 100%) !important;
+    background-image: linear-gradient(to right bottom, #6f0014, #8e2027, #ad393c, #cd5152, #ee6969) !important;
 }
+
 
 .bg-gradient-success
 {
@@ -15061,9 +15064,11 @@ button.bg-lighter:focus
 
 .bg-gradient-info
 {
-    background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
+      background-image: linear-gradient(to right bottom, #6f0014, #8e2027, #ad393c, #cd5152, #ee6969) !important;
 }
 
+
+ 
 .bg-gradient-warning
 {
     background: linear-gradient(87deg, #fb6340 0, #fbb140 100%) !important;
@@ -15402,7 +15407,8 @@ button.section-darker:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+     background-image: linear-gradient(to right bottom, #6f0014, #8e2027, #ad393c, #cd5152, #ee6969) !important;
+}
 }
 
 .bg-gradient-secondary
