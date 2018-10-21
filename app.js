@@ -118,7 +118,9 @@ app.get('/dashboard',function(req,res){
       dbo.collection("users").find({}).toArray(function(err, results) {
         if (err) throw err;
         b = results.length;
-        res.render('dashboard',{data : dat,ab : b,ac : c,aa : a});
+        var d =b/(b+c);
+        d *=100;
+        res.render('dashboard',{data : dat,ab : b,ac : c,aa : a,ad :d} );
         db.close();
       });
       db.close();
@@ -267,7 +269,6 @@ app.post('/login',urlEncodedParser,function(req,res){
   MongoClient.connect(url,{useNewUrlParser : true}, function(err, db) {
     if (err) throw err;
     var dbo = db.db("mydb");
-    console.log(obj);
     dbo.collection("banks").find(obj).toArray(function(err, result) {
       if (err) throw err;
       if(result[0]!=undefined){
