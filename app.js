@@ -82,7 +82,15 @@ app.get('/deleteu',function(req,res){
 
 //Index page
 app.get('/index',function(req,res){
-  res.render('index',{data : searchtran});
+  if(searchtran == 1){
+  res.render('index',{data : "Your blood has been DONATED"});
+  }
+  else if(searchtran == 0){
+    res.render('index',{data : "Your blood is yet to be donated"});
+  }
+  else{
+    res.render('index',{data : undefined});
+  }
 });
 
 //Register page
@@ -209,25 +217,20 @@ var searchtran;
 app.post('/transactions',urlEncodedParser,function(req,res){
   if(!req.body) return res.sendStatus(400);
   var obj = {donor_id : ""};
-  var objr = {_id : ""};
   obj.donor_id = req.body.tranid;
+  console.log(obj);
   MongoClient.connect(url,{useNewUrlParser : true}, function(err, db) {
     if (err) throw err;
     var dbo = db.db("mydb");
     dbo.collection("users").find(obj).toArray(function(err, result) {
       if (err) throw err;
-      if(result != undefined){
+      if(result[0] != undefined){
         searchtran = 1;
       }
-      res.redirect('/login');
-      db.close();
-    });
-    dbo.collection("donors").find(obj).toArray(function(err, result) {
-      if (err) throw err;
-      if(result != undefined){
+      else{
         searchtran = 0;
-      }
-      res.redirect('/login');
+      };
+      res.redirect('/index');
       db.close();
     });
   });
@@ -331,7 +334,7 @@ app.post('/adduser',urlEncodedParser,function(req,res){
     if (err) throw err;
     myquery = result[0];
     console.log(result[0]);
-    obj.donor_id = myquery._id;
+    obj.donor_id = myquery._id.toString();
     dbo.collection("users").insertOne(obj, function(err, res) {
       if (err) throw err;
       console.log("User Added");
