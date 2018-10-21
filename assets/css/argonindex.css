@@ -15047,7 +15047,7 @@ button.bg-lighter:focus
 .bg-gradient-primary
 {
 
-    background-image: linear-gradient(to right bottom, #6f0014, #8e2027, #ad393c, #cd5152, #ee6969) !important;
+  background-image: linear-gradient(to right, #cb0436, #d83950, #e4586a, #ee7384, #f68d9d) !important;
 }
 
 .bg-gradient-secondary
@@ -15403,7 +15403,7 @@ button.section-darker:focus
 
 .bg-gradient-primary
 {
-    background-image: linear-gradient(to right bottom, #6f0014, #8e2027, #ad393c, #cd5152, #ee6969) !important;
+   background-image: linear-gradient(to right, #cb0436, #d83950, #e4586a, #ee7384, #f68d9d) !important;
 }
 
 .bg-gradient-secondary
